@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_quotation_creation_settle.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='this.props.showRemainingButtons']/div" position="inside">
+            <t t-call="point_of_sale.controlButton"
+                t-if="this.pos.config.pqs_quotation_enabled"
+                icon="'article'"
+                btnText.translate="Create Quotation"
+                btnClasses="'btn-secondary pqs-create-quotation-button '"
+                onClick="() => this.pos.pqsCreateQuotation()">
+            </t>
+        </xpath>
+    </t>
+
+</templates>

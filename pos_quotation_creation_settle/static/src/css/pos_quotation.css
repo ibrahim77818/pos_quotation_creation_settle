@@ -1,0 +1,32 @@
+.pqs-quotation-receipt .pqs-receipt-title {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 6px;
+}
+
+.pqs-quotation-receipt .pqs-receipt-subtitle,
+.pqs-quotation-receipt .pqs-receipt-no-payment,
+.pqs-quotation-receipt .pqs-receipt-validity {
+    text-align: center;
+    font-size: 0.85em;
+}
+
+.pqs-quotation-receipt .pqs-receipt-no-payment {
+    font-weight: bold;
+}
+
+.pqs-quotation-receipt .pqs-receipt-note {
+    font-style: italic;
+    white-space: pre-line;
+}
+
+.pos .pqs-quotation-receipt-screen .pqs-screen-notice {
+    margin: 8px 0 16px;
+    color: #6c757d;
+}
+
+.pos .control-button.pqs-create-quotation-button i {
+    margin-inline-end: 4px;
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Quotation ticket printed by the 20.0 POS ticket printer. It is
+             loaded into the POS through ir.ui.view._get_xml_ids_to_load and
+             rendered in the browser; amounts arrive already formatted. -->
+        <template id="pos_quotation_receipt">
+            <html id="pos-receipt">
+                <head>
+                    <meta charset="UTF-8"></meta>
+                    <t t-call="point_of_sale.pos_order_receipt_style"/>
+                </head>
+                <body>
+                    <div class="pos-receipt">
+                        <div class="w-100 text-center mb-3" name="logo">
+                            <img t-if="image.get('logo')" t-att-src="image['logo']" style="max-height: 75px"/>
+                        </div>
+                        <div class="text-center">
+                            <div t-out="quotation['company_name']"/>
+                            <div t-if="quotation['company_vat']">Tax ID: <t t-out="quotation['company_vat']"/></div>
+                            <div t-if="quotation['shop_name']">Shop: <t t-out="quotation['shop_name']"/></div>
+                        </div>
+                        <div class="text-large text-center text-bold mt-2">QUOTATION</div>
+                        <div class="text-center mb-3">Not a tax invoice - no payment recorded</div>
+
+                        <table class="w-100 mb-3">
+                            <tbody>
+                                <tr><td class="text-start">Quotation:</td><td class="text-end" t-out="quotation['name']"/></tr>
+                                <tr><td class="text-start">Date:</td><td class="text-end" t-out="quotation['date_order']"/></tr>
+                                <tr t-if="quotation['expiry_display']"><td class="text-start">Valid Until:</td><td class="text-end" t-out="quotation['expiry_display']"/></tr>
+                                <tr><td class="text-start">Customer:</td><td class="text-end" t-out="quotation['partner_name']"/></tr>
+                                <tr t-if="quotation['partner_phone']"><td class="text-start">Phone:</td><td class="text-end" t-out="quotation['partner_phone']"/></tr>
+                                <tr t-if="quotation['salesperson']"><td class="text-start">Salesperson:</td><td class="text-end" t-out="quotation['salesperson']"/></tr>
+                                <tr t-if="quotation['team']"><td class="text-start">Sales Team:</td><td class="text-end" t-out="quotation['team']"/></tr>
+                            </tbody>
+                        </table>
+
+                        <table class="w-100 mb-3">
+                            <tbody>
+                                <t t-foreach="quotation['lines']" t-as="line">
+                                    <tr><td colspan="2" class="text-start" t-out="line['product_name']"/></tr>
+                                    <tr t-if="line['note']"><td colspan="2" class="text-start ps-3"><i t-out="line['note']"/></td></tr>
+                                    <tr>
+                                        <td class="text-start ps-3" t-out="line['qty_label']"/>
+                                        <td class="text-end" t-out="line['subtotal_label']"/>
+                                    </tr>
+                                    <tr t-if="line['discount_label']"><td colspan="2" class="text-start ps-3">Discount: <t t-out="line['discount_label']"/></td></tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <table class="w-100 mb-3 text-large">
+                            <tbody>
+                                <tr><td class="text-start">Untaxed Amount</td><td class="text-end" t-out="quotation['amount_untaxed_label']"/></tr>
+                                <tr><td class="text-start">Taxes</td><td class="text-end" t-out="quotation['amount_tax_label']"/></tr>
+                                <tr class="text-bold"><td class="text-start">TOTAL</td><td class="text-end" t-out="quotation['amount_total_label']"/></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="text-center text-bold">No payment has been recorded for this quotation.</div>
+                        <div t-if="quotation['expiry_display']" class="text-center">Prices are valid until: <t t-out="quotation['expiry_display']"/></div>
+                        <div class="text-center mt-2">
+                            <div t-out="quotation['name']"/>
+                            <div t-if="quotation['session_name']" t-out="quotation['session_name']"/>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </template>
+    </data>
+</odoo>
