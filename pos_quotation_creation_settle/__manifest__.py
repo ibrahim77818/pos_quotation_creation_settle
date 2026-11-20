@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'POS Quotation Creation & Validity-Governed Settlement',
-    'version': '20.0.1.2.2',
+    'version': '20.0.1.2.3',
     'category': 'Sales/Point of Sale',
     'summary': 'Create Sales quotations from the POS cart (no payment), print a '
                'quotation receipt and PDF, and govern settlement of expired '

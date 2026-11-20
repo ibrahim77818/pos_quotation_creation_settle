@@ -110,7 +110,7 @@ class PosOrder(models.Model):
             for product, needed in stock_needed.items():
                 available = product.with_context(location=location.id).qty_available \
                     if location else product.qty_available
-                if float_compare(needed, available, precision_rounding=product.uom_id.rounding) > 0:
+                if float_compare(needed, available, precision_digits=SaleOrder._pqs_qty_digits()) > 0:
                     add(_('Not enough stock for "%(product)s": %(needed)s needed, '
                           '%(available)s available.',
                           product=product.display_name,

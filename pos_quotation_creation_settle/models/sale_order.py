@@ -65,6 +65,12 @@ class SaleOrder(models.Model):
     # ------------------------------------------------------------------
     # Helpers
     # ------------------------------------------------------------------
+    @api.model
+    def _pqs_qty_digits(self):
+        """Quantity precision. Odoo 20 removed uom.uom.rounding: quantities
+        use the 'Product Unit' decimal precision, as the sale module does."""
+        return self.env['decimal.precision'].precision_get('Product Unit')
+
     def _pqs_tz(self):
         return (self.env.user.tz or self.env.context.get('tz')
                 or self.env.company.partner_id.tz or 'UTC')
@@ -317,7 +323,7 @@ class SaleOrder(models.Model):
             if not product:
                 raise UserError(_('A product in the cart could not be found.'))
             qty = float(line.get('qty') or 0.0)
-            if float_compare(qty, 0.0, precision_rounding=product.uom_id.rounding or 0.01) <= 0:
+            if float_compare(qty, 0.0, precision_digits=self._pqs_qty_digits()) <= 0:
                 raise UserError(_(
                     'Quotations cannot contain zero or negative quantities '
                     '(product "%s"). Remove refund or zero-quantity lines first.',
@@ -449,7 +455,7 @@ class SaleOrder(models.Model):
             'shop_name': order.pqs_pos_shop_name or '',
             'session_name': order.pqs_pos_session_id.name or '',
             'partner_name': order.partner_id.display_name,
-            'partner_phone': order.partner_id.phone or order.partner_id.mobile or '',
+            'partner_phone': order.partner_id.phone or '',
             'date_order': order._pqs_format_dt(order.date_order),
             'expiry': fields.Datetime.to_string(order.pqs_expiry_datetime)
             if order.pqs_expiry_datetime else False,
@@ -505,6 +511,5 @@ class SaleOrderLine(models.Model):
 
     def _pqs_has_remaining_qty(self):
         self.ensure_one()
-        rounding = self.product_uom_id.rounding or 0.01
         return not float_is_zero(max(self._pqs_remaining_qty(), 0.0),
-                                 precision_rounding=rounding)
+                                 precision_digits=self.env['sale.order']._pqs_qty_digits())
