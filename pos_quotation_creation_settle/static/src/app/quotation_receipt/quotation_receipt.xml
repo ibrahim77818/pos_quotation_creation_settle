@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_quotation_creation_settle.QuotationReceipt">
+        <div class="pos-receipt pqs-quotation-receipt">
+            <img t-if="props.logo" class="pos-receipt-logo" t-att-src="props.logo" alt="Logo"/>
+            <div class="pos-receipt-contact">
+                <div t-esc="quotation.company_name"/>
+                <div t-if="quotation.company_vat">Tax ID: <t t-esc="quotation.company_vat"/></div>
+                <div t-if="quotation.shop_name">Shop: <t t-esc="quotation.shop_name"/></div>
+            </div>
+            <div class="pqs-receipt-title">QUOTATION</div>
+            <div class="pqs-receipt-subtitle">Not a tax invoice - no payment recorded</div>
+            <br/>
+            <div class="pqs-receipt-info">
+                <div>Quotation: <span class="pos-receipt-right-align" t-esc="quotation.name"/></div>
+                <div>Date: <span class="pos-receipt-right-align" t-esc="quotation.date_order"/></div>
+                <div t-if="quotation.expiry_display">Valid Until: <span class="pos-receipt-right-align" t-esc="quotation.expiry_display"/></div>
+                <div>Customer: <span class="pos-receipt-right-align" t-esc="quotation.partner_name"/></div>
+                <div t-if="quotation.partner_phone">Phone: <span class="pos-receipt-right-align" t-esc="quotation.partner_phone"/></div>
+                <div t-if="quotation.salesperson">Salesperson: <span class="pos-receipt-right-align" t-esc="quotation.salesperson"/></div>
+                <div t-if="quotation.team">Sales Team: <span class="pos-receipt-right-align" t-esc="quotation.team"/></div>
+            </div>
+            <br/>
+            <div class="orderlines">
+                <t t-foreach="quotation.lines or []" t-as="line" t-key="line_index">
+                    <div class="pqs-receipt-line">
+                        <div t-esc="line.product_name"/>
+                        <div t-if="line.note" class="pos-receipt-left-padding pqs-receipt-note" t-esc="line.note"/>
+                        <div class="pos-receipt-left-padding">
+                            <t t-esc="formatQty(line.qty)"/>
+                            <t t-esc="' ' + (line.uom or '') + ' x '"/>
+                            <t t-esc="props.formatCurrency(line.price_unit)"/>
+                            <span class="pos-receipt-right-align" t-esc="props.formatCurrency(line.price_subtotal)"/>
+                        </div>
+                        <div t-if="hasDiscount(line)" class="pos-receipt-left-padding">
+                            Discount: <t t-esc="line.discount + '%'"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <div class="pos-receipt-right-align" t-esc="'--------'"/>
+            <br/>
+            <div>Untaxed Amount<span class="pos-receipt-right-align" t-esc="props.formatCurrency(quotation.amount_untaxed)"/></div>
+            <div>Taxes<span class="pos-receipt-right-align" t-esc="props.formatCurrency(quotation.amount_tax)"/></div>
+            <div class="pos-receipt-amount">
+                TOTAL
+                <span class="pos-receipt-right-align" t-esc="props.formatCurrency(quotation.amount_total)"/>
+            </div>
+            <br/>
+            <div class="pqs-receipt-no-payment">
+                No payment has been recorded for this quotation.
+            </div>
+            <div t-if="quotation.expiry_display" class="pqs-receipt-validity">
+                Prices are valid until: <t t-esc="quotation.expiry_display"/>
+            </div>
+            <div class="pos-receipt-order-data">
+                <div t-esc="quotation.name"/>
+                <div t-if="quotation.session_name" t-esc="quotation.session_name"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,785 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_quotation_creation_settle
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-20 12:00+0000\n"
+"PO-Revision-Date: 2026-11-20 12:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#, python-format
+msgid "%(product)s: %(old)s → %(new)s"
+msgstr "%(product)s: %(old)s ← %(new)s"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "A product in the cart could not be found."
+msgstr "تعذر العثور على أحد منتجات السلة."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "A quotation needs a customer. Do you want to select one now?"
+msgstr "يتطلب عرض السعر عميلاً. هل تريد اختيار عميل الآن؟"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.constraint,message:pos_quotation_creation_settle.constraint_sale_order_pqs_pos_uid_uniq
+msgid "A quotation was already created for this POS cart."
+msgstr "تم إنشاء عرض سعر لهذه السلة مسبقاً."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields.selection,name:pos_quotation_creation_settle.selection__pos_config__pqs_expiry_mode__alert
+msgid "Alert Only"
+msgstr "تنبيه فقط"
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "Alert Only warns the cashier and still allows settlement. Block Same-Price Settlement only allows the expired quotation to be settled at the current POS prices."
+msgstr "خيار \"تنبيه فقط\" يحذر الكاشير ويسمح بالتسوية. خيار \"منع التسوية بنفس السعر\" لا يسمح بتسوية عرض السعر المنتهي إلا بأسعار نقطة البيع الحالية."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_expiry_mode
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_expiry_mode
+msgid ""
+"Alert Only: warn the cashier but allow settlement at the original quotation prices.\n"
+"Block Same-Price Settlement: the expired quotation cannot be settled at its original prices; it can only be settled after being re-priced at the current POS prices."
+msgstr ""
+"تنبيه فقط: تحذير الكاشير مع السماح بالتسوية بأسعار عرض السعر الأصلية.\n"
+"منع التسوية بنفس السعر: لا يمكن تسوية عرض السعر المنتهي بأسعاره الأصلية، ولا تتم تسويته إلا بعد إعادة تسعيره بأسعار نقطة البيع الحالية."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_check_stock_before_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_check_stock_before_settle
+msgid "Before taking the payment of a Quotation/Order settlement, check that storable products are available in the POS stock location. Enable it when stock is restricted at synchronisation, so a paid order cannot get stuck in the sync queue."
+msgstr "قبل استلام دفعة تسوية عرض سعر/أمر، يتم التحقق من توفر المنتجات المخزنة في موقع مخزون نقطة البيع. فعّل هذا الخيار عندما يكون المخزون مقيداً عند المزامنة، حتى لا يعلق طلب مدفوع في قائمة انتظار المزامنة."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields.selection,name:pos_quotation_creation_settle.selection__pos_config__pqs_salesperson_fallback__block
+msgid "Block quotation creation"
+msgstr "منع إنشاء عرض السعر"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields.selection,name:pos_quotation_creation_settle.selection__pos_config__pqs_expiry_mode__block
+msgid "Block Same-Price Settlement"
+msgstr "منع التسوية بنفس السعر"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Cannot Create Quotation"
+msgstr "لا يمكن إنشاء عرض السعر"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_salesperson_fallback
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_salesperson_fallback
+msgid "Cashier Without Linked User"
+msgstr "كاشير غير مرتبط بمستخدم"
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "Changing the Expiration date of a quotation in Sales also changes its POS expiry."
+msgstr "تغيير تاريخ انتهاء عرض السعر في المبيعات يغيّر أيضاً تاريخ انتهائه في نقطة البيع."
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "Check product availability before the payment of a Quotation/Order settlement, so a paid order cannot be rejected later for missing stock."
+msgstr "التحقق من توفر المنتجات قبل دفع تسوية عرض سعر/أمر، حتى لا يُرفض طلب مدفوع لاحقاً بسبب نقص المخزون."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_check_stock_before_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_check_stock_before_settle
+msgid "Check Stock Before Settlement"
+msgstr "التحقق من المخزون قبل التسوية"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Continue Settlement"
+msgstr "متابعة التسوية"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+#, python-format
+msgid "Create a quotation for %s? No payment will be recorded and the cart will be closed."
+msgstr "إنشاء عرض سعر للعميل %s؟ لن يتم تسجيل أي دفعة وسيتم إغلاق السلة."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.xml:0
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Create Quotation"
+msgstr "إنشاء عرض سعر"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_quotation_enabled
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_quotation_enabled
+msgid "Create Quotation from POS"
+msgstr "إنشاء عرض سعر من نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_sale_order__pqs_pos_config_id
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.view_sales_order_filter_pos_quotation
+msgid "Created from POS"
+msgstr "منشأ من نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Creating quotations is not enabled for the Point of Sale \"%s\"."
+msgstr "إنشاء عروض الأسعار غير مفعّل لنقطة البيع \"%s\"."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Customer Required"
+msgstr "العميل مطلوب"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Customer:"
+msgstr "العميل:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Date:"
+msgstr "التاريخ:"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields.selection,name:pos_quotation_creation_settle.selection__pos_config__pqs_validity_unit__days
+msgid "Days"
+msgstr "أيام"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Discount:"
+msgstr "الخصم:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Do you want to continue with the settlement?"
+msgstr "هل تريد متابعة التسوية؟"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Down Payment Not Allowed"
+msgstr "الدفعة المقدمة غير مسموح بها"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Down payments are not available for expired quotations in Block mode. The down-payment line was removed."
+msgstr "الدفعات المقدمة غير متاحة لعروض الأسعار المنتهية في وضع المنع. تمت إزالة بند الدفعة المقدمة."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt_screen/quotation_receipt_screen.xml:0
+msgid "Download Quotation PDF"
+msgstr "تنزيل ملف PDF لعرض السعر"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_auto_download_pdf
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_auto_download_pdf
+msgid "Download Quotation PDF Automatically"
+msgstr "تنزيل ملف PDF لعرض السعر تلقائياً"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_auto_download_pdf
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_auto_download_pdf
+msgid "Download the quotation PDF as soon as the quotation is created."
+msgstr "تنزيل ملف PDF لعرض السعر فور إنشائه."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Expired Quotation"
+msgstr "عرض سعر منتهي الصلاحية"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Expired quotation: lines were re-priced at the current prices."
+msgstr "عرض سعر منتهي الصلاحية: أعيد تسعير البنود بالأسعار الحالية."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Expired Quotation: Original Prices Blocked"
+msgstr "عرض سعر منتهي الصلاحية: الأسعار الأصلية ممنوعة"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_sale_order__pqs_expiry_datetime
+msgid "Expiry stamped when the quotation was created from the POS."
+msgstr "تاريخ الانتهاء المسجل عند إنشاء عرض السعر من نقطة البيع."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields.selection,name:pos_quotation_creation_settle.selection__pos_config__pqs_validity_unit__hours
+msgid "Hours"
+msgstr "ساعات"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_validity_duration
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_validity_duration
+msgid "How long a quotation stays valid after it is created."
+msgstr "المدة التي يظل فيها عرض السعر صالحاً بعد إنشائه."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Network Error"
+msgstr "خطأ في الشبكة"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt_screen/quotation_receipt_screen.xml:0
+msgid "New Order"
+msgstr "طلب جديد"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+msgid "No"
+msgstr "لا"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "No payment has been recorded for this quotation."
+msgstr "لم يتم تسجيل أي دفعة لعرض السعر هذا."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt_screen/quotation_receipt_screen.xml:0
+msgid "No payment has been recorded. The cart will be closed when you start a new order."
+msgstr "لم يتم تسجيل أي دفعة. سيتم إغلاق السلة عند بدء طلب جديد."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "No valid salesperson could be assigned to the quotation."
+msgstr "تعذر تعيين مندوب مبيعات صالح لعرض السعر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Not a tax invoice - no payment recorded"
+msgstr "ليست فاتورة ضريبية - لم يتم تسجيل أي دفعة"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#, python-format
+msgid "Not enough stock for \"%(product)s\": %(needed)s needed, %(available)s available."
+msgstr "المخزون غير كافٍ للمنتج \"%(product)s\": المطلوب %(needed)s والمتوفر %(available)s."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Phone:"
+msgstr "الهاتف:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "Please select a customer before creating a quotation."
+msgstr "يرجى اختيار عميل قبل إنشاء عرض السعر."
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.view_order_form_pos_quotation
+msgid "Point of Sale Quotation"
+msgstr "عرض سعر نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_sale_order__pqs_pos_uid
+msgid "POS Cart Reference"
+msgstr "مرجع سلة نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "POS Quotations"
+msgstr "عروض أسعار نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_sale_order__pqs_pos_session_id
+msgid "POS Session"
+msgstr "جلسة نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_sale_order__pqs_pos_shop_name
+msgid "POS Shop"
+msgstr "متجر نقطة البيع"
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.report_saleorder_document_pos_quotation
+msgid "POS Shop:"
+msgstr "متجر نقطة البيع:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Prices are valid until:"
+msgstr "الأسعار صالحة حتى:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt_screen/quotation_receipt_screen.xml:0
+msgid "Print Receipt"
+msgstr "طباعة الإيصال"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "QUOTATION"
+msgstr "عرض سعر"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotation %(name)s expired on %(expiry)s. It can only be settled at the current prices."
+msgstr "انتهت صلاحية عرض السعر %(name)s في %(expiry)s. لا يمكن تسويته إلا بالأسعار الحالية."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotation %(name)s expired on %(expiry)s. Settling it now keeps the original quotation prices."
+msgstr "انتهت صلاحية عرض السعر %(name)s في %(expiry)s. تسويته الآن تحتفظ بأسعار عرض السعر الأصلية."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#, python-format
+msgid "Quotation %(name)s has expired: \"%(product)s\" must be settled at the current price %(price)s without discount."
+msgstr "انتهت صلاحية عرض السعر %(name)s: يجب تسوية \"%(product)s\" بالسعر الحالي %(price)s دون خصم."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotation %s has already been fully settled."
+msgstr "تمت تسوية عرض السعر %s بالكامل مسبقاً."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+#, python-format
+msgid "Quotation %s has expired: \"%s\" must be settled at the current price %s without discount."
+msgstr "انتهت صلاحية عرض السعر %s: يجب تسوية \"%s\" بالسعر الحالي %s دون خصم."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+#, python-format
+msgid "Quotation %s has expired: a down payment based on its original amount is not allowed."
+msgstr "انتهت صلاحية عرض السعر %s: لا يُسمح بدفعة مقدمة محسوبة على مبلغه الأصلي."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+#, python-format
+msgid "Quotation %s has expired: the current price of \"%s\" is unknown. Load the quotation again."
+msgstr "انتهت صلاحية عرض السعر %s: السعر الحالي للمنتج \"%s\" غير معروف. حمّل عرض السعر مرة أخرى."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotation %s is cancelled and cannot be settled."
+msgstr "عرض السعر %s ملغى ولا يمكن تسويته."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+msgid "Quotation Already Created"
+msgstr "تم إنشاء عرض السعر مسبقاً"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Quotation Cannot Be Settled"
+msgstr "لا يمكن تسوية عرض السعر"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt_screen/quotation_receipt_screen.xml:0
+msgid "Quotation Created"
+msgstr "تم إنشاء عرض السعر"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotation created from the Point of Sale %(shop)s (session %(session)s) without payment."
+msgstr "تم إنشاء عرض السعر من نقطة البيع %(shop)s (الجلسة %(session)s) دون دفع."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_sale_order__pqs_is_expired
+msgid "Quotation Expired"
+msgstr "عرض السعر منتهي الصلاحية"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#, python-format
+msgid "Quotation lines re-priced at the current prices by POS order %(order)s: %(details)s"
+msgstr "أعيد تسعير بنود عرض السعر بالأسعار الحالية بواسطة طلب نقطة البيع %(order)s: %(details)s"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_sale_order__pqs_expiry_datetime
+msgid "Quotation Valid Until"
+msgstr "عرض السعر صالح حتى"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_validity_enabled
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_validity_enabled
+msgid "Quotation Validity Period"
+msgstr "فترة صلاحية عرض السعر"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Quotation:"
+msgstr "عرض السعر:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "Quotations can only be created from an open session of this Point of Sale."
+msgstr "لا يمكن إنشاء عروض الأسعار إلا من جلسة مفتوحة لنقطة البيع هذه."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotations cannot contain negative prices (product \"%s\"). Remove reward or discount lines first."
+msgstr "لا يمكن أن يحتوي عرض السعر على أسعار سالبة (المنتج \"%s\"). احذف بنود المكافآت أو الخصم أولاً."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Quotations cannot contain negative prices or discounts above 100%. Remove reward or discount lines first."
+msgstr "لا يمكن أن يحتوي عرض السعر على أسعار سالبة أو خصومات تزيد عن 100%. احذف بنود المكافآت أو الخصم أولاً."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Quotations cannot contain refund or zero-quantity lines."
+msgstr "لا يمكن أن يحتوي عرض السعر على بنود استرجاع أو بنود بكمية صفرية."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "Quotations cannot contain zero or negative quantities (product \"%s\"). Remove refund or zero-quantity lines first."
+msgstr "لا يمكن أن يحتوي عرض السعر على كميات صفرية أو سالبة (المنتج \"%s\"). احذف بنود الاسترجاع أو البنود ذات الكمية الصفرية أولاً."
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "Quotations expire after this period. The expiry is checked when a quotation is settled through Quotation/Order."
+msgstr "تنتهي صلاحية عروض الأسعار بعد هذه الفترة. يتم التحقق من الانتهاء عند تسوية عرض السعر عبر عرض سعر/أمر."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_order_line__pqs_repriced
+msgid "Re-priced at Settlement"
+msgstr "أعيد تسعيره عند التسوية"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Remove the payment lines before creating a quotation."
+msgstr "احذف بنود الدفع قبل إنشاء عرض السعر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Sales Team:"
+msgstr "فريق المبيعات:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Salesperson:"
+msgstr "مندوب المبيعات:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "Select Customer"
+msgstr "اختيار العميل"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "Settle at Current Prices"
+msgstr "التسوية بالأسعار الحالية"
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#, python-format
+msgid "Settled by POS order %(order)s after the quotation expired on %(expiry)s (governance: %(mode)s, re-priced: %(repriced)s)."
+msgstr "تمت التسوية بواسطة طلب نقطة البيع %(order)s بعد انتهاء صلاحية عرض السعر في %(expiry)s (الحوكمة: %(mode)s، إعادة التسعير: %(repriced)s)."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+msgid "Settlement Not Allowed"
+msgstr "التسوية غير مسموح بها"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Shop:"
+msgstr "المتجر:"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_quotation_enabled
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_quotation_enabled
+msgid "Show a \"Create Quotation\" button on the POS product screen. The cart is turned into a Sales quotation without any payment."
+msgstr "إظهار زر \"إنشاء عرض سعر\" في شاشة المنتجات بنقطة البيع. يتم تحويل السلة إلى عرض سعر في المبيعات دون أي دفع."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_validity_enabled
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_validity_enabled
+msgid "Stamp an expiry on quotations created from this POS and check it when a quotation is settled through Quotation/Order."
+msgstr "تسجيل تاريخ انتهاء على عروض الأسعار المنشأة من نقطة البيع هذه والتحقق منه عند تسوية عرض السعر عبر عرض سعر/أمر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Tax ID:"
+msgstr "الرقم الضريبي:"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_sale_order__pqs_pos_uid
+msgid "Technical reference of the POS cart, used to avoid creating the same quotation twice."
+msgstr "مرجع تقني لسلة نقطة البيع يُستخدم لتجنب إنشاء عرض السعر نفسه مرتين."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "The active cashier could not be found."
+msgstr "تعذر العثور على الكاشير النشط."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "The cart is empty. Add products before creating a quotation."
+msgstr "السلة فارغة. أضف منتجات قبل إنشاء عرض السعر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "The cashier \"%s\" is not linked to an active internal user, so no salesperson can be assigned. Link the employee to a user or change the fallback in the Point of Sale settings."
+msgstr "الكاشير \"%s\" غير مرتبط بمستخدم داخلي نشط، لذا لا يمكن تعيين مندوب مبيعات. اربط الموظف بمستخدم أو غيّر الإجراء البديل في إعدادات نقطة البيع."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+#, python-format
+msgid "The cashier has no linked user: %s was set as salesperson."
+msgstr "الكاشير غير مرتبط بمستخدم: تم تعيين %s كمندوب مبيعات."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "The discount of \"%s\" must be between 0 and 100%%."
+msgstr "يجب أن يكون خصم \"%s\" بين 0 و 100%%."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "The fiscal position \"%s\" is not available in this Point of Sale."
+msgstr "الوضع المالي \"%s\" غير متاح في نقطة البيع هذه."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+#, python-format
+msgid "The line \"%(product)s\" of %(name)s has already been fully settled."
+msgstr "تمت تسوية البند \"%(product)s\" من %(name)s بالكامل مسبقاً."
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_order_line__pqs_repriced
+msgid "The line comes from an expired quotation and was re-priced at the current POS prices when it was settled."
+msgstr "هذا البند من عرض سعر منتهي الصلاحية وأعيد تسعيره بأسعار نقطة البيع الحالية عند تسويته."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "The Point of Sale configuration was not found."
+msgstr "تعذر العثور على إعدادات نقطة البيع."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+#, python-format
+msgid "The pricelist \"%s\" is not available in this Point of Sale."
+msgstr "قائمة الأسعار \"%s\" غير متاحة في نقطة البيع هذه."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "The pricelist currency must match the Point of Sale currency."
+msgstr "يجب أن تطابق عملة قائمة الأسعار عملة نقطة البيع."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "The quotation could not be created because the server is unreachable. Please try again when the connection is restored."
+msgstr "تعذر إنشاء عرض السعر لأنه لا يمكن الوصول إلى الخادم. يرجى المحاولة مرة أخرى عند استعادة الاتصال."
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "The quotation gets a tag named after this POS, the active cashier as salesperson and the Sales Team of this POS."
+msgstr "يحصل عرض السعر على وسم باسم نقطة البيع هذه، والكاشير النشط كمندوب مبيعات، وفريق المبيعات الخاص بنقطة البيع هذه."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "The quotation lines will be re-priced at the current prices and their discounts removed. Down payments are not available for expired quotations."
+msgstr "سيتم إعادة تسعير بنود عرض السعر بالأسعار الحالية وإزالة خصوماتها. الدفعات المقدمة غير متاحة لعروض الأسعار المنتهية."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/sale_order_management_screen.js:0
+msgid "The quotation validity could not be checked because the server is unreachable."
+msgstr "تعذر التحقق من صلاحية عرض السعر لأنه لا يمكن الوصول إلى الخادم."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_config.py:0
+msgid "The quotation validity duration must be greater than zero."
+msgstr "يجب أن تكون مدة صلاحية عرض السعر أكبر من صفر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/sale_order.py:0
+msgid "The selected quotation could not be found."
+msgstr "تعذر العثور على عرض السعر المحدد."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+msgid "The stock could not be checked because the server is unreachable. Settle this quotation when the connection is restored."
+msgstr "تعذر التحقق من المخزون لأنه لا يمكن الوصول إلى الخادم. قم بتسوية عرض السعر هذا عند استعادة الاتصال."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/create_quotation_button/create_quotation_button.js:0
+msgid "This cart contains lines loaded from an existing quotation or sales order. Settle it with a payment, or start a new cart to create a quotation."
+msgstr "تحتوي هذه السلة على بنود محمّلة من عرض سعر أو أمر بيع قائم. قم بتسويتها بالدفع، أو ابدأ سلة جديدة لإنشاء عرض سعر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/payment_screen.js:0
+#, python-format
+msgid "This cart was already converted into quotation %s. Start a new order, or settle the quotation through Quotation/Order."
+msgstr "تم تحويل هذه السلة مسبقاً إلى عرض السعر %s. ابدأ طلباً جديداً، أو قم بتسوية عرض السعر عبر عرض سعر/أمر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "TOTAL"
+msgstr "الإجمالي"
+
+#. module: pos_quotation_creation_settle
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.res_config_settings_view_form
+msgid "Turn the POS cart into a Sales quotation without payment, print a quotation receipt and download the quotation PDF."
+msgstr "تحويل سلة نقطة البيع إلى عرض سعر في المبيعات دون دفع، وطباعة إيصال عرض السعر وتنزيل ملف PDF لعرض السعر."
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Untaxed Amount"
+msgstr "المبلغ دون ضريبة"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields.selection,name:pos_quotation_creation_settle.selection__pos_config__pqs_salesperson_fallback__current_user
+msgid "Use the logged-in POS user"
+msgstr "استخدام مستخدم نقطة البيع المسجل دخوله"
+
+#. module: pos_quotation_creation_settle
+#. odoo-javascript
+#: model_terms:ir.ui.view,arch_db:pos_quotation_creation_settle.report_saleorder_document_pos_quotation
+#: code:addons/pos_quotation_creation_settle/static/src/app/quotation_receipt/quotation_receipt.xml:0
+msgid "Valid Until:"
+msgstr "صالح حتى:"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_validity_duration
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_validity_duration
+msgid "Validity Duration"
+msgstr "مدة الصلاحية"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_expiry_mode
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_expiry_mode
+msgid "Validity Expiry Governance"
+msgstr "حوكمة انتهاء الصلاحية"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_pos_config__pqs_validity_unit
+#: model:ir.model.fields,field_description:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_validity_unit
+msgid "Validity Unit"
+msgstr "وحدة الصلاحية"
+
+#. module: pos_quotation_creation_settle
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_pos_config__pqs_salesperson_fallback
+#: model:ir.model.fields,help:pos_quotation_creation_settle.field_res_config_settings__pos_pqs_salesperson_fallback
+msgid "What to do when the active cashier (employee) is not linked to an Odoo user that can be set as salesperson."
+msgstr "الإجراء المتبع عندما لا يكون الكاشير النشط (الموظف) مرتبطاً بمستخدم أودو يمكن تعيينه كمندوب مبيعات."
+
+#. module: pos_quotation_creation_settle
+#. odoo-python
+#: code:addons/pos_quotation_creation_settle/models/pos_order.py:0
+msgid "Yes"
+msgstr "نعم"

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_quotation_creation_settle.QuotationReceiptScreen">
+        <div class="receipt-screen screen h-100 bg-100 pqs-quotation-receipt-screen">
+            <div class="screen-content d-flex flex-column h-100">
+                <div class="top-content d-flex align-items-center py-3 border-bottom text-center">
+                    <div class="top-content-center flex-grow-1">
+                        <h1 class="mb-0">Quotation Created</h1>
+                    </div>
+                </div>
+                <div class="default-view d-flex flex-lg-row flex-column overflow-hidden flex-grow-1">
+                    <div class="actions d-flex flex-column justify-content-between flex-lg-grow-1 flex-grow-0 flex-shrink-1 flex-basis-0">
+                        <div class="d-flex flex-column m-4">
+                            <h1 t-if="quotation" t-esc="quotation.name"/>
+                            <div class="pqs-screen-notice">No payment has been recorded. The cart will be closed when you start a new order.</div>
+                            <div class="buttons my-3 d-flex flex-column gap-2">
+                                <button class="button print btn btn-lg btn-secondary w-100 py-3" t-on-click="() => this.printReceipt()">
+                                    <i class="fa fa-print me-2" role="img" aria-label="Print Receipt" title="Print Receipt"/>Print Receipt
+                                </button>
+                                <button class="button btn btn-lg btn-secondary w-100 py-3 pqs-download-pdf" t-on-click="() => this.downloadPdf()">
+                                    <i class="fa fa-file-pdf-o me-2" role="img" aria-label="Download Quotation PDF" title="Download Quotation PDF"/>Download Quotation PDF
+                                </button>
+                            </div>
+                        </div>
+                        <div class="validation-buttons d-flex w-100 gap-1 sticky-bottom">
+                            <button class="button next validation btn btn-primary w-100 py-5 rounded-0 fs-2" t-on-click="() => this.newOrder()" name="done">
+                                <i class="oi oi-chevron-right" role="img" aria-label="New Order" title="New Order"/>
+                                New Order
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pos-receipt-container d-flex flex-grow-1 flex-lg-grow-0 user-select-none justify-content-center bg-200 text-center overflow-hidden">
+                        <div class="d-inline-block m-3 p-3 border rounded bg-view text-start overflow-y-auto">
+                            <PQSQuotationReceipt t-if="quotation" t-props="receiptProps"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

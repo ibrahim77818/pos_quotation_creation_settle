@@ -1,0 +1,193 @@
+<!-- Odoo Apps description page for pos_quotation_creation_settle (Odoo 17.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Point of Sale &middot; Sales &middot; Quotations</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Quotation Creation &amp; Validity-Governed Settlement</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Turn a POS cart into a real Sales quotation in one click, with no payment, a printed quotation receipt and the quotation PDF. When the customer comes back, settle it through <b>Quotation/Order</b>, with a validity period that stops expired quotes from being sold at old prices.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 17.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">20 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_quotation_creation_settle</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 click</div><div style="font-size:15px;color:#555;">From POS cart to Sales quotation, without any payment</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">2 outputs</div><div style="font-size:15px;color:#555;">POS quotation receipt and downloadable quotation PDF</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 modes</div><div style="font-size:15px;color:#555;">Alert Only, or Block Same-Price Settlement on expiry</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">3 checkpoints</div><div style="font-size:15px;color:#555;">On loading the quotation, before payment (also offline) and at sync</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Customers often ask the cashier for a price offer before they buy. Standard Odoo 17 can settle a Sales quotation in the POS, but it cannot create one from the POS, and it never checks how old the quoted prices are.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 17</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>The cashier has to <b>leave the POS</b> and re-type the cart in Sales to give a price offer.</li>
+      <li>Nothing links the quotation to the <b>shop, cashier or POS sales team</b>.</li>
+      <li>The customer leaves with <b>nothing printed</b> from the POS.</li>
+      <li>An old quotation is settled at its <b>original prices</b>, however long ago it was made.</li>
+      <li>The Sales <b>Expiration</b> date is ignored by the POS.</li>
+      <li>A settled, re-priced quotation keeps its <b>old total</b> in Sales.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>Create Quotation</b> on the product screen turns the cart into a draft quotation, prices and discounts included.</li>
+      <li>Automatic <b>shop tag</b>, cashier as <b>Salesperson</b> and the POS <b>Sales Team</b>.</li>
+      <li>A <b>quotation receipt</b> (no payment lines) is printed and the <b>quotation PDF</b> downloaded.</li>
+      <li>A <b>validity period</b> in hours or days, with <b>Alert Only</b> or <b>Block Same-Price Settlement</b>.</li>
+      <li>The Sales <b>Expiration</b> date drives the POS expiry: extend or shorten it in Sales.</li>
+      <li>Re-priced settlements <b>update the quotation lines</b>, so totals match what was collected.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, all inside the POS.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Enable</div><div style="font-size:14px;color:#555;">Turn on <b>Create Quotation from POS</b> for a shop, and optionally a validity period and governance mode.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Quote</div><div style="font-size:14px;color:#555;">Fill the cart, pick the customer, click <b>Create Quotation</b>. No payment is recorded.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Hand over</div><div style="font-size:14px;color:#555;">Print the quotation receipt and give or send the quotation PDF.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Settle</div><div style="font-size:14px;color:#555;">Later, open <b>Quotation/Order</b> and settle it. Validity is checked and enforced.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 6px;">Screenshots were taken on an Odoo database with the furniture demo products, the <b>Shop</b> POS, a 3-day validity period and a demo customer (Al Noor Interiors).</p>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Settings</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Everything is configured per shop</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; POS Quotations</b>. All options are off by default: <b>Create Quotation from POS</b>, <b>Cashier Without Linked User</b> (use the logged-in POS user, or block creation), <b>Download Quotation PDF Automatically</b>, <b>Quotation Validity Period</b> (duration in <b>Hours</b> or <b>Days</b>), <b>Validity Expiry Governance</b> and <b>Check Stock Before Settlement</b>.</p>
+  <img src="pqs_01_settings.png" alt="POS Quotations settings block in Point of Sale settings" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Create a quotation from the POS cart, without payment</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Create Quotation</b> button sits with the product screen control buttons. If no customer is selected, the cashier is asked to pick one. Prices, discounts, manual prices and line notes are carried into a draft quotation in Sales. No POS order, payment or invoice is created. Clicking again on the same cart returns the same quotation instead of a duplicate.</p>
+  <img src="pqs_02_create_button.png" alt="POS product screen with the Create Quotation button" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Quotation receipt and quotation PDF</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Quotation Created</b> screen shows a POS receipt titled <b>QUOTATION</b> with the customer, salesperson, sales team, <b>Valid Until</b>, lines and totals, and no payment or change section. <b>Print Receipt</b> uses the POS printer; <b>Download Quotation PDF</b> gets the standard Sales quotation PDF, which also shows <b>Valid Until</b> and <b>POS Shop</b>. <b>New Order</b> closes the cart, and a converted cart can no longer be paid.</p>
+  <img src="pqs_03_quotation_receipt.png" alt="Quotation Created screen with the POS quotation receipt" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pqs_04_quotation_pdf.png" alt="Sales quotation PDF with Valid Until and POS Shop" style="width:100%;max-width:725px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Shop tag, salesperson and sales team assigned automatically</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">In the quotation&rsquo;s <b>Other Info</b> tab: a <b>Tags</b> entry named after the shop (reused if it exists, in any letter case), the cashier&rsquo;s linked user as <b>Salesperson</b> (employee login supported) and the shop&rsquo;s <b>Sales Team</b>, and the <b>Point of Sale Quotation</b> block with <b>POS Shop</b>, <b>POS Session</b>, <b>Quotation Valid Until</b> and <b>Quotation Expired</b>. Use the <b>Created from POS</b> filter in Sales to list them.</p>
+  <img src="pqs_05_quotation_form.png" alt="Sales quotation created from the POS with shop tag, salesperson and sales team" style="width:100%;max-width:595px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Alert Only: warn on expired quotations</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">When the cashier selects an expired quotation in <b>Quotation/Order</b>, an <b>Expired Quotation</b> popup shows the expiry date. <b>Continue Settlement</b> settles it at the original quotation prices, and the quotation history records that it was settled after expiry.</p>
+  <img src="pqs_06_alert_popup.png" alt="Expired Quotation warning popup in Alert Only mode" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Block Same-Price Settlement: re-price at today&rsquo;s prices</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">In Block mode the popup offers <b>Settle at Current Prices</b>. The current price is computed by the server with the quotation&rsquo;s own pricelist and today&rsquo;s product prices, so a price raised in the backend after the session opened is still applied. Discounts are removed and the down-payment choice is skipped.</p>
+  <img src="pqs_07_block_popup.png" alt="Expired Quotation: Original Prices Blocked popup" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pqs_08_repriced_cart.png" alt="POS cart with quotation lines re-priced at current prices" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Enforced before payment, even offline</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">If the cashier edits a re-priced line, the payment screen refuses it with <b>Settlement Not Allowed</b> and names the required price. The server&rsquo;s verdict is stored on the cart when the quotation is loaded, so this check also works with no connection, before any cash is taken. The server applies the same rules again when the order syncs, and also refuses cancelled or already settled quotations.</p>
+  <img src="pqs_09_payment_refused.png" alt="Settlement Not Allowed popup on the payment screen" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">The quotation follows what was collected</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">After a re-priced settlement, the quotation lines take the collected prices, so the Sales total matches the POS payment. The chatter lists each change (old &rarr; new price) and the settling POS order.</p>
+  <img src="pqs_10_chatter.png" alt="Quotation chatter showing re-priced lines after POS settlement" style="width:100%;max-width:595px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== GOVERNANCE ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Validity governance at a glance</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">What happens when a quotation is selected in <b>Quotation/Order</b>.</p>
+<div style="font-size:15px;line-height:1.6;">
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Within validity</span> Settled at the original quotation prices and discounts.</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Expired &middot; Alert Only</span> Warning, then settled at the original prices; logged in the quotation history.</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Expired &middot; Block</span> Only at the current price, without discount; no down payment.</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Cancelled / settled</span> Always refused, whatever the mode.</div>
+</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Which expiry is used:</b> the POS expiry stamped at creation (created + 3 days, or + N hours), which follows any change to the Sales <b>Expiration</b> date &rarr; otherwise the Sales <b>Expiration</b> date (end of that day) &rarr; otherwise the shop&rsquo;s validity period counted from the quotation date. Example: a quotation created on 1 March at 10:00 with a 3-day period expires on 4 March at 10:00; moving <b>Expiration</b> to 10 March extends it to the end of 10 March.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is handled in the code and covered by tests where it can be.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Prices changed after the session opened</b><br/><span style="color:#555;">Current prices come from the server, not from the prices the POS loaded in the morning.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Quotation on another pricelist</b><br/><span style="color:#555;">Re-pricing uses the quotation&rsquo;s own pricelist, even one the shop does not load.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Connection lost at payment</b><br/><span style="color:#555;">The stored verdict blocks an invalid settlement locally, so no paid order gets stuck in the sync queue for this reason.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Double click or retried request</b><br/><span style="color:#555;">One cart gives one quotation: a unique POS cart reference prevents duplicates.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Cashier without a user</b><br/><span style="color:#555;">With employee login, an employee without a linked user falls back to the logged-in user, or creation is blocked, as configured.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Invalid carts</b><br/><span style="color:#555;">Empty carts, refund or zero-quantity lines, negative prices, discounts outside 0&ndash;100% and pricelists or fiscal positions the shop doesn&rsquo;t allow are refused.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Cancelled or already settled</b><br/><span style="color:#555;">Refused when the quotation is selected, before payment and at sync.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Stock enforced at sync</b><br/><span style="color:#555;">Optional <b>Check Stock Before Settlement</b> checks the POS stock location before payment.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Arabic shops</b><br/><span style="color:#555;">Settings, buttons, popups, the quotation receipt and server messages are translated into Arabic.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Users without Sales rights</b><br/><span style="color:#555;">POS users can create quotations and download the PDF through a secure access token.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">No new groups: the module relies on the standard Point of Sale and Sales access rights.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Can</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale Administrator</td><td style="padding:10px 14px;">Configure <b>POS Quotations</b> settings per shop.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale User</td><td style="padding:10px 14px;">Create quotations from an open session of a shop where the feature is on, and download their PDF with the access token.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Sales users</td><td style="padding:10px 14px;">See POS quotations like any other quotation; <b>POS Session</b> is visible to POS users only.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Quotations are created in the shop&rsquo;s company; the salesperson must belong to it.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">17.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>pos_sale</code> (<code>pos_hr</code> optional, for employee login)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">POS screens</td><td style="padding:10px 14px;"><b>Create Quotation</b> button, <b>Quotation Created</b> screen; extends <b>Quotation/Order</b> and the payment screen</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; POS Quotations</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;">Extends <code>pos.config</code>, <code>res.config.settings</code>, <code>sale.order</code>, <code>sale.order.line</code>, <code>pos.order</code>, <code>pos.order.line</code>, <code>pos.session</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Reports</td><td style="padding:10px 14px;">Adds <b>Valid Until</b> and <b>POS Shop</b> to the standard quotation PDF</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">20: creation and assignments, no payment, tag reuse, duplicates, input validation, salesperson fallback, PDF, validity stamping, Alert and Block modes, server-side current prices, quotation pricelist, Sales Expiration sync, cancelled/settled, stock check</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Languages</td><td style="padding:10px 14px;">English, Arabic</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;  ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>
