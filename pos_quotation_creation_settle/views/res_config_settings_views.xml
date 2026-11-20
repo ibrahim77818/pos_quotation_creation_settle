@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.quotation.settle</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='point_of_sale']" position="inside">
+                <block title="POS Quotations" id="pqs_quotation_section" invisible="not pos_config_id">
+                    <setting id="pqs_quotation_enabled_setting"
+                             help="Turn the POS cart into a Sales quotation without payment, print a quotation receipt and download the quotation PDF.">
+                        <field name="pos_pqs_quotation_enabled"/>
+                        <div class="content-group mt16" invisible="not pos_pqs_quotation_enabled">
+                            <div class="row">
+                                <label for="pos_pqs_salesperson_fallback" class="col-lg-5 o_light_label"/>
+                                <field name="pos_pqs_salesperson_fallback" widget="radio"/>
+                            </div>
+                            <div class="mt8">
+                                <field name="pos_pqs_auto_download_pdf" class="oe_inline"/>
+                                <label for="pos_pqs_auto_download_pdf" class="o_light_label"/>
+                            </div>
+                            <div class="text-muted mt8">
+                                The quotation gets a tag named after this POS, the active cashier as salesperson and the Sales Team of this POS.
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="pqs_validity_setting" invisible="not pos_pqs_quotation_enabled"
+                             help="Quotations expire after this period. The expiry is checked when a quotation is settled through Quotation/Order.">
+                        <field name="pos_pqs_validity_enabled"/>
+                        <div class="content-group mt16" invisible="not pos_pqs_validity_enabled">
+                            <div class="row">
+                                <label for="pos_pqs_validity_duration" class="col-lg-5 o_light_label"/>
+                                <div class="col-lg-7">
+                                    <field name="pos_pqs_validity_duration" class="oe_inline"
+                                           required="pos_pqs_validity_enabled"/>
+                                    <field name="pos_pqs_validity_unit" class="oe_inline ms-2"
+                                           required="pos_pqs_validity_enabled"/>
+                                </div>
+                            </div>
+                            <div class="row mt16">
+                                <label for="pos_pqs_expiry_mode" class="col-lg-5 o_light_label"/>
+                                <field name="pos_pqs_expiry_mode" widget="radio"/>
+                            </div>
+                            <div class="text-muted mt8">
+                                Changing the Expiration date of a quotation in Sales also changes its POS expiry.
+                            </div>
+                            <div class="text-muted mt8">
+                                Alert Only warns the cashier and still allows settlement. Block Same-Price Settlement only allows the expired quotation to be settled at the current POS prices.
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="pqs_stock_check_setting"
+                             help="Check product availability before the payment of a Quotation/Order settlement, so a paid order cannot be rejected later for missing stock.">
+                        <field name="pos_pqs_check_stock_before_settle"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

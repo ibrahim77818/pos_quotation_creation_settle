@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_pos_quotation" model="ir.ui.view">
+        <field name="name">sale.order.form.pos.quotation.settle</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']" position="inside">
+                <group string="Point of Sale Quotation" name="pqs_pos_quotation"
+                       invisible="not pqs_pos_config_id and not pqs_expiry_datetime">
+                    <group>
+                        <field name="pqs_pos_shop_name"/>
+                        <field name="pqs_pos_config_id" invisible="1"/>
+                        <field name="pqs_pos_session_id" groups="point_of_sale.group_pos_user"/>
+                    </group>
+                    <group>
+                        <field name="pqs_expiry_datetime"/>
+                        <field name="pqs_is_expired"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter_pos_quotation" model="ir.ui.view">
+        <field name="name">sale.order.search.pos.quotation.settle</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter string="Created from POS" name="pqs_from_pos"
+                        domain="[('pqs_pos_config_id', '!=', False)]"/>
+                <field name="pqs_pos_shop_name"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
