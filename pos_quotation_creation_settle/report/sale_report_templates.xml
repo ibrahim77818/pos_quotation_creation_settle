@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_pos_quotation" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div t-if="doc.pqs_expiry_datetime and doc.state in ['draft', 'sent']"
+                 class="col-auto col-3 mw-100 mb-2" name="pqs_valid_until">
+                <strong>Valid Until:</strong>
+                <p class="m-0" t-field="doc.pqs_expiry_datetime"
+                   t-options="{'tz_name': doc.user_id.tz or doc.company_id.partner_id.tz or 'UTC'}"/>
+            </div>
+            <div t-if="doc.pqs_pos_shop_name" class="col-auto col-3 mw-100 mb-2" name="pqs_pos_shop">
+                <strong>POS Shop:</strong>
+                <p class="m-0" t-field="doc.pqs_pos_shop_name"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

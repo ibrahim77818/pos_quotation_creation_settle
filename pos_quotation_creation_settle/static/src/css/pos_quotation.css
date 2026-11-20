@@ -1,0 +1,43 @@
+.pos .pqs-quotation-receipt .pqs-receipt-title {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 6px;
+}
+
+.pos .pqs-quotation-receipt .pqs-receipt-subtitle,
+.pos .pqs-quotation-receipt .pqs-receipt-no-payment,
+.pos .pqs-quotation-receipt .pqs-receipt-validity {
+    text-align: center;
+    font-size: 0.85em;
+}
+
+.pos .pqs-quotation-receipt .pqs-receipt-no-payment {
+    font-weight: bold;
+}
+
+.pos .pqs-quotation-receipt .pqs-receipt-note {
+    font-style: italic;
+    white-space: pre-line;
+}
+
+.pos .pqs-quotation-receipt-screen .pqs-screen-notice {
+    margin: 8px 0 16px;
+    color: #6c757d;
+}
+
+.pos .control-button.pqs-create-quotation-button i {
+    margin-inline-end: 4px;
+}
+
+/* Popup buttons have a fixed width in v16: let longer labels such as
+   "Continue Settlement" or "Settle at Current Prices" fit. Short labels keep
+   the standard size. */
+.pos .popup .footer .button {
+    width: auto;
+    min-width: 120px;
+    padding-left: 14px;
+    padding-right: 14px;
+    white-space: nowrap;
+}

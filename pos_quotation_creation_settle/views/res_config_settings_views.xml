@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.quotation.settle</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='point_of_sale']" position="inside">
+                <h2>POS Quotations</h2>
+                <div class="row mt16 o_settings_container" id="pqs_quotation_section">
+                    <div class="col-12 col-lg-6 o_setting_box" id="pqs_quotation_enabled_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_pqs_quotation_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_pqs_quotation_enabled"/>
+                            <div class="text-muted">
+                                Turn the POS cart into a Sales quotation without payment, print a quotation receipt and download the quotation PDF.
+                            </div>
+                            <div class="content-group mt16" attrs="{'invisible': [('pos_pqs_quotation_enabled', '=', False)]}">
+                                <div class="row">
+                                    <label for="pos_pqs_salesperson_fallback" class="col-lg-5 o_light_label"/>
+                                    <field name="pos_pqs_salesperson_fallback" widget="radio"/>
+                                </div>
+                                <div class="mt8">
+                                    <field name="pos_pqs_auto_download_pdf" class="oe_inline"/>
+                                    <label for="pos_pqs_auto_download_pdf" class="o_light_label"/>
+                                </div>
+                                <div class="text-muted mt8">
+                                    The quotation gets a tag named after this POS, the active cashier as salesperson and the Sales Team of this POS.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pqs_validity_setting"
+                         attrs="{'invisible': [('pos_pqs_quotation_enabled', '=', False)]}">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_pqs_validity_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_pqs_validity_enabled"/>
+                            <div class="text-muted">
+                                Quotations expire after this period. The expiry is checked when a quotation is settled through Quotation/Order.
+                            </div>
+                            <div class="content-group mt16" attrs="{'invisible': [('pos_pqs_validity_enabled', '=', False)]}">
+                                <div class="row">
+                                    <label for="pos_pqs_validity_duration" class="col-lg-5 o_light_label"/>
+                                    <field name="pos_pqs_validity_duration" class="oe_inline"
+                                           attrs="{'required': [('pos_pqs_validity_enabled', '=', True)]}"/>
+                                    <field name="pos_pqs_validity_unit" class="oe_inline ms-2"
+                                           attrs="{'required': [('pos_pqs_validity_enabled', '=', True)]}"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="pos_pqs_expiry_mode" class="col-lg-5 o_light_label"/>
+                                    <field name="pos_pqs_expiry_mode" widget="radio"/>
+                                </div>
+                                <div class="text-muted mt8">
+                                    Changing the Expiration date of a quotation in Sales also changes its POS expiry.
+                                </div>
+                                <div class="text-muted mt8">
+                                    Alert Only warns the cashier and still allows settlement. Block Same-Price Settlement only allows the expired quotation to be settled at the current POS prices.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pqs_stock_check_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_pqs_check_stock_before_settle"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_pqs_check_stock_before_settle"/>
+                            <div class="text-muted">
+                                Check product availability before the payment of a Quotation/Order settlement, so a paid order cannot be rejected later for missing stock.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
